@@ -24,4 +24,6 @@ COPY --chown=node:node --from=build-stage /home/node/app/yarn.lock /home/node/ap
 
 RUN yarn install --production=true
 
+EXPOSE 8080
+
 CMD yarn start

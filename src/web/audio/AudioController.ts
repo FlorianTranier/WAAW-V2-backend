@@ -1,5 +1,6 @@
 import { AudioService } from '@/domain/services/audio/AudioService'
 import express, { Request, Response } from 'express'
+import { AudioInfoVM } from './vm/AudioInfoVM'
 
 export class AudioController {
 
@@ -13,6 +14,7 @@ export class AudioController {
     const router = express.Router()
 
     router.get(`/:id`, this.getAudioById.bind(this))
+    router.get(`/:id/info`, this.getAudioInfoById.bind(this))
 
     p.httpInstance.use(this.BASE_URL, router)
   }
@@ -21,4 +23,12 @@ export class AudioController {
     (await this.audioService.getAudioStreamById(req.params.id)).pipe(res)
   }
 
+  async getAudioInfoById(req: Request, res: Response) {
+    const audioInfo = await this.audioService.getAudioInfoById(req.params.id)
+    res.send(new AudioInfoVM({
+      title: audioInfo.title,
+      durationInSeconds: audioInfo.durationInSeconds,
+      thumbnailsUrl: audioInfo.thumbnailUrl,
+    }))
+  }
 }

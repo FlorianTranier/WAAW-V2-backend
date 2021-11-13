@@ -1,6 +1,7 @@
 import { Readable } from "stream"
 import ytdl from "ytdl-core"
 import { IAudioProvider } from "@/domain/providers/audio/IAudioProvider"
+import { AudioInfo } from "../../domain/models/audio/AudioInfo"
 
 export class YoutubeProvider implements IAudioProvider {
 
@@ -12,4 +13,12 @@ export class YoutubeProvider implements IAudioProvider {
     })
   }
 
+  async getAudioInfoById(id: string): Promise<AudioInfo> {
+    const info = await ytdl.getInfo(id)
+    return new AudioInfo({
+      title: info.videoDetails.title,
+      durationInSeconds: parseInt(info.videoDetails.lengthSeconds),
+      thumbnailUrl: info.videoDetails.thumbnails.pop()?.url ?? ''
+    })
+  }
 }
