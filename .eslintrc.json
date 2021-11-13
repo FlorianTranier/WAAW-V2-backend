@@ -10,6 +10,9 @@
 	"ignorePatterns": [
 		"*.d.ts", "dist", "node_modules"
 	],
+	"rules": {
+		"semi": ["error", "never"]
+	},
 	"settings": {
 		"import/resolver": {
 			"alias": {

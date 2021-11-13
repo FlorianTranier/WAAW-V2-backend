@@ -1,5 +1,5 @@
-import { Readable } from 'stream';
-import { IAudioProvider } from '@/domain/providers/audio/IAudioProvider';
+import { Readable } from 'stream'
+import { IAudioProvider } from '@/domain/providers/audio/IAudioProvider'
 export class AudioService {
 
 	private readonly audioProvider: IAudioProvider

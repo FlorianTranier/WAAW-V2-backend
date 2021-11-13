@@ -1,4 +1,4 @@
-import { AudioService } from '@/domain/services/audio/AudioService';
+import { AudioService } from '@/domain/services/audio/AudioService'
 import express, { Request, Response } from 'express'
 
 export class AudioController {

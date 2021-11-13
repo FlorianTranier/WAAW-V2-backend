@@ -1,7 +1,7 @@
-import { YoutubeProvider } from './data/youtube/YoutubeProvider';
+import { YoutubeProvider } from './data/youtube/YoutubeProvider'
 import express from 'express'
-import { AudioService } from './domain/services/audio/AudioService';
-import { AudioController } from './web/audio/AudioController';
+import { AudioService } from './domain/services/audio/AudioService'
+import { AudioController } from './web/audio/AudioController'
 
 const app = express()
 
