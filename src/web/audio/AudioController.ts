@@ -3,22 +3,22 @@ import express, { Request, Response } from 'express'
 
 export class AudioController {
 
-	private readonly audioService: AudioService
+  private readonly audioService: AudioService
 
-	BASE_URL = '/audio'
+  BASE_URL = '/audio'
 
-	constructor(p: { httpInstance: express.Application, audioService: AudioService }) {
-		this.audioService = p.audioService
+  constructor(p: { httpInstance: express.Application, audioService: AudioService }) {
+    this.audioService = p.audioService
 
-		const router = express.Router()
+    const router = express.Router()
 
-		router.get(`/:id`, this.getAudioById.bind(this))
+    router.get(`/:id`, this.getAudioById.bind(this))
 
-		p.httpInstance.use(this.BASE_URL, router)
-	}
+    p.httpInstance.use(this.BASE_URL, router)
+  }
 
-	async getAudioById(req: Request, res: Response) {
-		(await this.audioService.getAudioStreamById(req.params.id)).pipe(res)
-	}
+  async getAudioById(req: Request, res: Response) {
+    (await this.audioService.getAudioStreamById(req.params.id)).pipe(res)
+  }
 
 }

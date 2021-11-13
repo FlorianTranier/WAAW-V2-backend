@@ -11,14 +11,15 @@ const audioProvider = new YoutubeProvider()
 
 // services
 const audioService = new AudioService({
-	audioProvider: audioProvider
+  audioProvider: audioProvider
 })
 
 // controllers
 new AudioController({
-	httpInstance: app,
-	audioService: audioService
+  httpInstance: app,
+  audioService: audioService
 })
 
-app.listen(8080, () => { console.log('listening port 8080') })
+// eslint-disable-next-line no-console
+app.listen(8080, () => {console.log('listening port 8080') })
 
