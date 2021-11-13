@@ -1,0 +1,23 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript"
+	],
+	"ignorePatterns": [
+		"*.d.ts", "dist", "node_modules"
+	],
+	"settings": {
+		"import/resolver": {
+			"alias": {
+				"map": [
+					["@", "./src"]
+				],
+				"extensions": [".ts", ".js"]
+			}
+		}
+	}
+}
