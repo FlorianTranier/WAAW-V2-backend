@@ -1,0 +1,22 @@
+name: "build & push to registry"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-push-docker:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: login to registry
+        run: echo ${{ secrets.DOCKER_REGISTRY_PASSWORD }} | docker login -u ${{ secrets.DOCKER_REGISTRY_USERNAME }} --password-stdin ${{ secrets.DOCKER_REGISTRY_URL }}
+      - name: docker build
+        run: docker build --no-cache -t ${{secrets.DOCKER_REGISTRY_URL}}/waaw-api-v2 .
+      - name: push docker image
+        run: docker push ${{secrets.DOCKER_REGISTRY_URL}}/waaw-api-v2
