@@ -1,9 +1,14 @@
-import { YoutubeProvider } from './data/youtube/YoutubeProvider'
+import cors from 'cors'
 import express from 'express'
+
+import { YoutubeProvider } from './data/youtube/YoutubeProvider'
 import { AudioService } from './domain/services/audio/AudioService'
 import { AudioController } from './web/audio/AudioController'
 
 const app = express()
+
+// CORS policy
+app.use(cors())
 
 // dependencies
 // providers

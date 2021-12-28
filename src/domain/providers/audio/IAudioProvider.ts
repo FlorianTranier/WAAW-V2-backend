@@ -1,5 +1,6 @@
-import { AudioInfo } from "@/domain/models/audio/AudioInfo"
-import { Readable } from "stream"
+import { Readable } from 'stream'
+
+import { AudioInfo } from '@/domain/models/audio/AudioInfo'
 
 export interface IAudioProvider {
 	getAudioStreamById(id: string): Promise<Readable>

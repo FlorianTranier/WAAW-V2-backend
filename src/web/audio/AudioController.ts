@@ -1,6 +1,7 @@
-import { AudioService } from '@/domain/services/audio/AudioService'
 import express, { Request, Response } from 'express'
-import { AudioInfoVM } from './vm/AudioInfoVM'
+
+import { AudioService } from '@/domain/services/audio/AudioService'
+import { AudioInfoVM } from '@/web/audio/vm/AudioInfoVM'
 
 export class AudioController {
 
@@ -10,11 +11,11 @@ export class AudioController {
 
   constructor(p: { httpInstance: express.Application, audioService: AudioService }) {
     this.audioService = p.audioService
-
+ 
     const router = express.Router()
 
-    router.get(`/:id`, this.getAudioById.bind(this))
-    router.get(`/:id/info`, this.getAudioInfoById.bind(this))
+    router.get('/:id', this.getAudioById.bind(this))
+    router.get('/:id/info', this.getAudioInfoById.bind(this))
 
     p.httpInstance.use(this.BASE_URL, router)
   }

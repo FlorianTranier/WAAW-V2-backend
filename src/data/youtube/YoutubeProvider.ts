@@ -1,7 +1,8 @@
-import { Readable } from "stream"
-import ytdl from "ytdl-core"
-import { IAudioProvider } from "@/domain/providers/audio/IAudioProvider"
-import { AudioInfo } from "../../domain/models/audio/AudioInfo"
+import { Readable } from 'stream'
+import ytdl from 'ytdl-core'
+
+import { AudioInfo } from '@/domain/models/audio/AudioInfo'
+import { IAudioProvider } from '@/domain/providers/audio/IAudioProvider'
 
 export class YoutubeProvider implements IAudioProvider {
 
