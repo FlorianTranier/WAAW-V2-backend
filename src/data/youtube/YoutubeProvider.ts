@@ -19,7 +19,8 @@ export class YoutubeProvider implements IAudioProvider {
     return new AudioInfo({
       title: info.videoDetails.title,
       durationInSeconds: parseInt(info.videoDetails.lengthSeconds),
-      thumbnailUrl: info.videoDetails.thumbnails.pop()?.url ?? ''
+      thumbnailUrl: info.videoDetails.thumbnails.pop()?.url ?? '',
+      author: info.videoDetails.author.name
     })
   }
 }

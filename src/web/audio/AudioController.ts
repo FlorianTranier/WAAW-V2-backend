@@ -30,6 +30,7 @@ export class AudioController {
       title: audioInfo.title,
       durationInSeconds: audioInfo.durationInSeconds,
       thumbnailsUrl: audioInfo.thumbnailUrl,
+      author: audioInfo.author
     }))
   }
 }
